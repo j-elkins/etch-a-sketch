@@ -2,6 +2,25 @@
 
 const gridContainer = document.querySelector("#gridContainer");
 
+let currentPaintMode = "purple";
+let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+
+function getPaintStyle() {
+  if (currentPaintMode == "purple") {
+    return "background-color: purple; border: 1px black solid";
+  } else if (currentPaintMode == "black") {
+    return "background-color: black; border: 1px black solid";
+  } else if (currentPaintMode == "eraser") {
+    return "background-color: white; border: 1px black solid";
+  } else if (currentPaintMode == "rainbow") {
+    return "background-color: '#' + randomColor; border: 1px black solid";
+  } else if (currentPaintMode == "lighten") {
+    return "background-color: white; border: 1px black solid";
+  } else if (currentPaintMode == "darken") {
+    return "background-color: white; border: 1px black solid";
+  }
+}
+
 function createGrid(height, width) {
   gridContainer.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
   gridContainer.style.gridTemplateRows = `repeat(${height}, 1fr)`;
@@ -11,10 +30,11 @@ function createGrid(height, width) {
     square.classList.add("square");
     square.style.cssText = "background-color: white; border: 1px black solid";
     gridContainer.appendChild(square);
-
+    // if mousedown detected, then mouseenter to change each div, until mouseup?
     square.addEventListener("mouseenter", () => {
-      square.style.cssText =
-        "background-color: purple; border: 1px black solid";
+      // if background is white: add color
+      // else
+      square.style.cssText = getPaintStyle();
     });
   }
 }
@@ -23,7 +43,7 @@ createGrid(30, 30);
 
 // CONTROL PANEL BUTTONS
 
-// button to refresh page
+// button to refresh page/ clear grid
 
 const refreshPageBtn = document.querySelector("#refreshPageBtn");
 refreshPageBtn.addEventListener("click", () => {
@@ -44,42 +64,42 @@ resizeGridBtn.addEventListener("click", () => {
 
 const toggleBWBtn = document.querySelector("#toggleBWBtn");
 toggleBWBtn.addEventListener("click", function () {
-  console.log("clicked toggle B&W mode");
+  currentPaintMode = "black";
 });
 
 // button to select 'shade of purple' mode
 
 const toggleShadesBtn = document.querySelector("#toggleShadesBtn");
 toggleShadesBtn.addEventListener("click", function () {
-  console.log("clicked toggle shades of purple");
+  currentPaintMode = "purple";
 });
 
 // button to select 'lighten' mode
 
 const toggleLightenBtn = document.querySelector("#toggleLightenBtn");
 toggleLightenBtn.addEventListener("click", function () {
-  console.log("clicked toggle lighten");
+  currentPaintMode = "lighten";
 });
 
 // button to select 'darken' mode
 
 const toggleDarkenBtn = document.querySelector("#toggleDarkenBtn");
 toggleDarkenBtn.addEventListener("click", function () {
-  console.log("clicked toggle darken");
+  currentPaintMode = "darken";
 });
 
 // button to select 'rainbow' mode
 
 const toggleRainbowBtn = document.querySelector("#toggleRainbowBtn");
 toggleRainbowBtn.addEventListener("click", function () {
-  console.log("clicked toggle rainbow");
+  currentPaintMode = "rainbow";
 });
 
 // button to select eraser
 
 const toggleEraserBtn = document.querySelector("#toggleEraserBtn");
 toggleEraserBtn.addEventListener("click", function () {
-  console.log("clicked toggle eraser");
+  currentPaintMode = "eraser";
 });
 
 // add hover effect: grid dvs change color when mouse passes over them
