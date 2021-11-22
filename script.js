@@ -3,7 +3,6 @@
 const gridContainer = document.querySelector("#gridContainer");
 
 let currentPaintMode = "purple";
-let randomColor = Math.floor(Math.random() * 16777215).toString(16);
 
 function getPaintStyle() {
   if (currentPaintMode == "purple") {
@@ -13,11 +12,16 @@ function getPaintStyle() {
   } else if (currentPaintMode == "eraser") {
     return "background-color: white; border: 1px black solid";
   } else if (currentPaintMode == "rainbow") {
-    return "background-color: '#' + randomColor; border: 1px black solid";
+    let randomColor = Math.floor(Math.random() * 360);
+    return (
+      "background-color: hsl(" +
+      randomColor +
+      ", 100%, 50%); border: 1px black solid"
+    );
   } else if (currentPaintMode == "lighten") {
-    return "background-color: white; border: 1px black solid";
+    return "background-color: #cd2ecd; border: 1px black solid";
   } else if (currentPaintMode == "darken") {
-    return "background-color: white; border: 1px black solid";
+    return "background-color: #ba7bba; border: 1px black solid";
   }
 }
 
@@ -33,7 +37,7 @@ function createGrid(height, width) {
     // if mousedown detected, then mouseenter to change each div, until mouseup?
     square.addEventListener("mouseenter", () => {
       // if background is white: add color
-      // else
+      // else lighten/darken according to chosen mode
       square.style.cssText = getPaintStyle();
     });
   }
@@ -62,8 +66,8 @@ resizeGridBtn.addEventListener("click", () => {
 
 // button to select black & white mode
 
-const toggleBWBtn = document.querySelector("#toggleBWBtn");
-toggleBWBtn.addEventListener("click", function () {
+const toggleBlackBtn = document.querySelector("#toggleBlackBtn");
+toggleBlackBtn.addEventListener("click", function () {
   currentPaintMode = "black";
 });
 
@@ -102,16 +106,10 @@ toggleEraserBtn.addEventListener("click", function () {
   currentPaintMode = "eraser";
 });
 
-// add hover effect: grid dvs change color when mouse passes over them
-// addEventListener for mouse pointer enters/leaves div
-
-// change color of the divs either by JS change background-color
-// or adding new class to div
-
 // add prompt popup to user asking: # of squares per side for new grid
 // max limit 100
 // new grid should take up same total space no matter what # of squares
 
 // BONUS: lighten/darken 10% on each pass
-// BONUS: shades of purple instead of black and white
+// BONUS: shades of purple instead of black
 // BONUS: add option to toggle random rainbow color insted of black
