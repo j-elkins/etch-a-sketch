@@ -1,15 +1,12 @@
-html {
-  background-color: lavender;
-  color: purple;
-  font-family: "Press Start 2P", cursive;
-}
-
 body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   align-items: center;
+  background-color: lavender;
+  color: purple;
+  font-family: "Press Start 2P", Courier, cursive;
 }
 
 #mainContent {
@@ -32,10 +29,14 @@ body {
 .btn {
   background-color: white;
   border-radius: 5px;
-  border: 1px purple solid;
+  border: 2px purple solid;
   width: 200px;
   padding: 10px 0px;
-  font-family: "Press Start 2P", cursive;
+  font-family: "Press Start 2P", Courier, cursive;
+}
+
+.btn:hover {
+  background: rgb(198, 195, 195);
 }
 
 #gridContainer {
@@ -43,10 +44,15 @@ body {
   border: 1px solid black;
   width: 500px;
   height: 500px;
+  padding: 0;
 }
 
 .square {
   background-color: white;
-  height: 20px;
-  width: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.filled {
+  background: purple;
 }
