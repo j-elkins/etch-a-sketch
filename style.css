@@ -5,7 +5,7 @@ body {
   gap: 50px;
   text-align: center;
   align-items: center;
-  background-image: url("/background.jpg");
+  background-image: url("https://j-elkins.github.io/etch-a-sketch/background.jpg");
   background-size: cover;
   background-attachment: fixed;
   color: black;
@@ -65,7 +65,7 @@ body {
 }
 
 .form input {
-  font-size: 16px;
+  font-size: 14px;
   width: 50px;
   background-color: black;
   color: white;
@@ -117,8 +117,12 @@ footer {
   width: 100%;
   color: white;
   text-align: center;
-  position: fixed;
-  bottom: 0px;
+  position: absolute;
+  bottom: 0;
   height: 40px;
   margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
