@@ -1,6 +1,4 @@
-// create a grid of squares. default 16 x 16
-// accept user input fro 'resize' form
-
+// create a grid of squares from user input (default 16x16)
 let height = "";
 let width = "";
 
@@ -17,13 +15,15 @@ function getInputValues() {
   createGrid(height, width);
 }
 
-const submitInputBtn = document.querySelector("#submitInputBtn");
-submitInputBtn.addEventListener("click", () => {
+const form = document.querySelector(".form");
+const resizeGridBtn = document.querySelector("#resizeGridBtn");
+resizeGridBtn.addEventListener("click", () => {
   getInputValues();
 });
 
 const gridContainer = document.querySelector("#gridContainer");
 
+//  select paint mode
 let currentPaintMode = "purple";
 let currentColor = 270;
 const incrementColor = 1;
@@ -42,13 +42,17 @@ function getPaintStyle() {
     return "background-color: #cd2ecd";
   } else if (currentPaintMode == "lighter") {
     return "background-color: #ba7bba";
+  } else if (currentPaintMode == "shades") {
+    currentColor += incrementColor;
+    let angle = 285 + 30 * Math.sin(currentColor);
+    return "background-color: hsl(" + angle + ", 100%, 50%)";
   } else if (currentPaintMode == "rainbow") {
     currentColor += incrementColor;
     return "background-color: hsl(" + currentColor + ", 100%, 50%)";
   }
 }
 
-// create grid using form input
+// create grid using default or form input
 function createGrid(height, width) {
   gridContainer.innerHTML = "";
   gridContainer.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
@@ -69,7 +73,6 @@ function createGrid(height, width) {
 createGrid(16, 16);
 
 // CONTROL PANEL BUTTONS
-
 const refreshPageBtn = document.querySelector("#refreshPageBtn");
 refreshPageBtn.addEventListener("click", () => {
   document.location.reload();
@@ -95,11 +98,6 @@ toggleLighterBtn.addEventListener("click", function () {
   currentPaintMode = "lighter";
 });
 
-// const toggleRandomBtn = document.querySelector("#toggleRandomBtn");
-// toggleRandomBtn.addEventListener("click", function () {
-//   currentPaintMode = "random";
-// });
-
 const toggleRainbowBtn = document.querySelector("#toggleRainbowBtn");
 toggleRainbowBtn.addEventListener("click", function () {
   currentPaintMode = "rainbow";
@@ -110,12 +108,14 @@ toggleEraserBtn.addEventListener("click", function () {
   currentPaintMode = "eraser";
 });
 
-// show form to take user input
-const form = document.querySelector(".form");
-const resizeGridBtn = document.querySelector("#resizeGridBtn");
-resizeGridBtn.addEventListener("click", () => {
-  form.classList.toggle("hidden");
-});
+// extra modes: random, shades of purple
 
-// BONUS: shades of purple instead of rainbow
-// BONUS: lighten/darken 10% on each pass
+// const toggleRandomBtn = document.querySelector("#toggleRandomBtn");
+// toggleRandomBtn.addEventListener("click", function () {
+//   currentPaintMode = "random";
+// });
+
+// const toggleShadesBtn = document.querySelector("#toggleShadesBtn");
+// toggleShadesBtn.addEventListener("click", function () {
+//   currentPaintMode = "shades";
+// });
