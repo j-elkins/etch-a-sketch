@@ -1,16 +1,19 @@
-// create a grid of squares by appending div elements
-// const heightInput = document.querySelector("#height");
-// const gridHeight = document.querySelector("#height").value;
-// console.log(heightInput, gridHeight);
+// create a grid of squares. default 16 x 16
+// accept user input fro 'resize' form
+let height = "";
+let width = "";
 
-let gridHeight = "";
-let gridWidth = "";
+function matchWidthToHeight() {
+  let src = document.querySelector("#height");
+  let dest = document.querySelector("#width");
+  dest.value = src.value;
+}
 
 function getInputValues() {
-  gridHeight = document.querySelector("#height").value;
-  gridWidth = document.querySelector("#width").value;
+  height = document.querySelector("#height").value;
+  width = document.querySelector("#width").value;
 
-  console.log(gridHeight, gridWidth);
+  createGrid(height, width);
 }
 
 const submitInputBtn = document.querySelector("#submitInputBtn");
@@ -44,6 +47,7 @@ function getPaintStyle() {
 }
 
 function createGrid(height, width) {
+  gridContainer.innerHTML = "";
   gridContainer.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
   gridContainer.style.gridTemplateRows = `repeat(${height}, 1fr)`;
 
@@ -61,24 +65,13 @@ function createGrid(height, width) {
   }
 }
 
-createGrid(30, 30);
+createGrid(16, 16);
 
 // CONTROL PANEL BUTTONS
-
-// button to refresh page/ clear grid
 
 const refreshPageBtn = document.querySelector("#refreshPageBtn");
 refreshPageBtn.addEventListener("click", () => {
   document.location.reload();
-});
-
-// button to resize grid based on user input
-// max height/width 100 - needs to fit in same size container
-// how to set CSS based on user input number of columns/rows?
-const form = document.querySelector(".form");
-const resizeGridBtn = document.querySelector("#resizeGridBtn");
-resizeGridBtn.addEventListener("click", () => {
-  form.classList.toggle("hidden");
 });
 
 // button to select black & white mode
@@ -130,7 +123,14 @@ toggleEraserBtn.addEventListener("click", function () {
   currentPaintMode = "eraser";
 });
 
-// add prompt popup to user asking: # of squares per side for new grid
+// button to resize grid based on user input
+// max height/width 100 - needs to fit in same size container
+const form = document.querySelector(".form");
+const resizeGridBtn = document.querySelector("#resizeGridBtn");
+resizeGridBtn.addEventListener("click", () => {
+  form.classList.toggle("hidden");
+});
+
 // max limit 100
 // new grid should take up same total space no matter what # of squares
 
