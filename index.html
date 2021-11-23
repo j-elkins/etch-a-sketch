@@ -22,23 +22,41 @@
           style="background-color: black"
         ></button>
         <button
-          id="toggleShadesBtn"
+          id="toggleDarkerBtn"
           class="btn"
           style="background-color: purple"
         ></button>
         <button
-          id="toggleLightenBtn"
+          id="togglePurpleBtn"
           class="btn"
           style="background-color: #cd2ecd"
         ></button>
         <button
-          id="toggleDarkenBtn"
+          id="toggleLighterBtn"
           class="btn"
           style="background-color: #ba7bba"
         ></button>
-        <button id="toggleRainbowBtn" class="btn">Rainbow</button>
-        <button id="toggleEraserBtn" class="btn"></button>
+        <button id="toggleRainbowBtn" class="btn"></button>
+        <button
+          id="toggleEraserBtn"
+          class="btn"
+          style="background-color: white"
+        ></button>
         <button id="resizeGridBtn" class="btn">Resize Grid</button>
+
+        <div class="form hidden">
+          <div class="inputDiv">
+            <label for="height">Height:</label>
+            <input type="text" id="height" name="height" class="inputField" />
+          </div>
+
+          <div class="inputDiv">
+            <label for="width">Width:</label>
+            <input type="text" id="width" name="width" class="inputField" />
+          </div>
+
+          <button id="submitInputBtn" class="btn">Submit</button>
+        </div>
       </div>
       <div id="gridContainer"></div>
     </div>

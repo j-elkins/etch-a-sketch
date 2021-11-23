@@ -1,11 +1,29 @@
 // create a grid of squares by appending div elements
+// const heightInput = document.querySelector("#height");
+// const gridHeight = document.querySelector("#height").value;
+// console.log(heightInput, gridHeight);
+
+let gridHeight = "";
+let gridWidth = "";
+
+function getInputValues() {
+  gridHeight = document.querySelector("#height").value;
+  gridWidth = document.querySelector("#width").value;
+
+  console.log(gridHeight, gridWidth);
+}
+
+const submitInputBtn = document.querySelector("#submitInputBtn");
+submitInputBtn.addEventListener("click", () => {
+  getInputValues();
+});
 
 const gridContainer = document.querySelector("#gridContainer");
 
 let currentPaintMode = "purple";
 
 function getPaintStyle() {
-  if (currentPaintMode == "purple") {
+  if (currentPaintMode == "darker") {
     return "background-color: purple; border: 1px black solid";
   } else if (currentPaintMode == "black") {
     return "background-color: black; border: 1px black solid";
@@ -18,9 +36,9 @@ function getPaintStyle() {
       randomColor +
       ", 100%, 50%); border: 1px black solid"
     );
-  } else if (currentPaintMode == "lighten") {
+  } else if (currentPaintMode == "purple") {
     return "background-color: #cd2ecd; border: 1px black solid";
-  } else if (currentPaintMode == "darken") {
+  } else if (currentPaintMode == "lighter") {
     return "background-color: #ba7bba; border: 1px black solid";
   }
 }
@@ -57,11 +75,10 @@ refreshPageBtn.addEventListener("click", () => {
 // button to resize grid based on user input
 // max height/width 100 - needs to fit in same size container
 // how to set CSS based on user input number of columns/rows?
-
+const form = document.querySelector(".form");
 const resizeGridBtn = document.querySelector("#resizeGridBtn");
 resizeGridBtn.addEventListener("click", () => {
-  console.log("clicked resize grid");
-  prompt("enter height and width");
+  form.classList.toggle("hidden");
 });
 
 // button to select black & white mode
@@ -71,26 +88,33 @@ toggleBlackBtn.addEventListener("click", function () {
   currentPaintMode = "black";
 });
 
-// button to select 'shade of purple' mode
+// button to select 'darker' mode
 
-const toggleShadesBtn = document.querySelector("#toggleShadesBtn");
-toggleShadesBtn.addEventListener("click", function () {
+const toggleDarkerBtn = document.querySelector("#toggleDarkerBtn");
+toggleDarkerBtn.addEventListener("click", function () {
+  currentPaintMode = "darker";
+});
+
+// button to select 'purple' mode (default)
+
+const togglePurpleBtn = document.querySelector("#togglePurpleBtn");
+togglePurpleBtn.addEventListener("click", function () {
   currentPaintMode = "purple";
 });
 
-// button to select 'lighten' mode
+// button to select 'lighter' mode
 
-const toggleLightenBtn = document.querySelector("#toggleLightenBtn");
-toggleLightenBtn.addEventListener("click", function () {
-  currentPaintMode = "lighten";
+const toggleLighterBtn = document.querySelector("#toggleLighterBtn");
+toggleLighterBtn.addEventListener("click", function () {
+  currentPaintMode = "lighter";
 });
 
-// button to select 'darken' mode
+// button to select 'random' mode
 
-const toggleDarkenBtn = document.querySelector("#toggleDarkenBtn");
-toggleDarkenBtn.addEventListener("click", function () {
-  currentPaintMode = "darken";
-});
+// const toggleRandomBtn = document.querySelector("#toggleRandomBtn");
+// toggleRandomBtn.addEventListener("click", function () {
+//   currentPaintMode = "random";
+// });
 
 // button to select 'rainbow' mode
 
