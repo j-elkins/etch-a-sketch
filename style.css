@@ -2,6 +2,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 50px;
   text-align: center;
   align-items: center;
   background-image: url("/background.jpg");
@@ -25,7 +26,7 @@ body {
   grid-template-rows: auto;
   gap: 5px;
   justify-content: center;
-  border: 2px solid green;
+  border: 2px solid cyan;
   margin-bottom: 30px;
   padding: 0;
 }
@@ -33,7 +34,7 @@ body {
 .btn {
   background-color: black;
   color: white;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 2px black solid;
   height: 70px;
   padding: 10px 0px;
@@ -53,35 +54,24 @@ body {
   padding: 0;
 }
 
-#gridContainer {
-  display: grid;
-  border: 1px solid black;
-  width: 500px;
-  height: 500px;
-  padding: 0;
-  border: 2px solid cyan;
-}
-
-.square {
-  background-color: white;
-  padding: 0;
-  margin: 0;
-}
-
-/* FORM ---------------------------------- */
-.form {
+/* FORM -------------------------------------- */
+#form {
   display: grid;
   grid-template-columns: repeat(2, 100px);
-  border: 2px solid yellow;
-  font-size: 14px;
+  font-size: 12px;
   width: 200px;
   text-align: center;
+  color: white;
+  border: 2px solid yellow;
 }
 
 .form input {
   font-size: 16px;
   width: 50px;
-  padding: 0;
+  background-color: black;
+  color: white;
+  font-family: Courier, cursive;
+  border-radius: 8px;
 }
 
 #height {
@@ -102,4 +92,21 @@ body {
   margin: 0 40px;
   border-radius: 10px;
   padding: 0;
+}
+
+/* GRID AREA ---------------------------------- */
+#gridContainer {
+  display: grid;
+  border: 1px solid black;
+  width: 500px;
+  height: 500px;
+  padding: 0;
+  background-color: black;
+  /* border: 2px solid green; */
+}
+
+.square {
+  border: 1px solid black;
+  padding: 0;
+  margin: 0;
 }
