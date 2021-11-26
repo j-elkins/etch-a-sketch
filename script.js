@@ -25,8 +25,8 @@ const gridContainer = document.querySelector("#gridContainer");
 
 //  select paint mode
 let currentPaintMode = "purple";
-let currentColor = 270;
-const incrementColor = 1;
+let currentHueValue = 270;
+const incrementHue = 1;
 
 function getPaintStyle() {
   if (currentPaintMode == "darker") {
@@ -43,12 +43,12 @@ function getPaintStyle() {
   } else if (currentPaintMode == "lighter") {
     return "background-color: #ba7bba";
   } else if (currentPaintMode == "shades") {
-    currentColor += incrementColor;
-    let angle = 285 + 30 * Math.sin(currentColor);
+    currentHueValue += incrementHue;
+    let angle = 285 + 30 * Math.sin(currentHueValue);
     return "background-color: hsl(" + angle + ", 100%, 50%)";
   } else if (currentPaintMode == "rainbow") {
-    currentColor += incrementColor;
-    return "background-color: hsl(" + currentColor + ", 100%, 50%)";
+    currentHueValue += incrementHue;
+    return "background-color: hsl(" + currentHueValue + ", 100%, 50%)";
   }
 }
 
@@ -70,7 +70,7 @@ function createGrid(height, width) {
   }
 }
 
-createGrid(16, 16);
+createGrid(16, 16); // default
 
 // CONTROL PANEL BUTTONS
 const refreshPageBtn = document.querySelector("#refreshPageBtn");
