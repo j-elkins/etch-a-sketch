@@ -8,6 +8,12 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
     </style>
+    <script
+      src="https://kit.fontawesome.com/131bb444ae.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="shortcut icon" href="/etch-a-sketch.png" />
+
     <link rel="stylesheet" href="style.css" />
     <script type="text/javascript" src="script.js" defer></script>
   </head>
@@ -16,49 +22,55 @@
     <div id="mainContent">
       <div id="controlPanel">
         <button id="refreshPageBtn" class="btn">Clear All</button>
-        <button
-          id="toggleBlackBtn"
-          class="btn"
-          style="background-color: black"
-        ></button>
-        <button
-          id="toggleDarkerBtn"
-          class="btn"
-          style="background-color: purple"
-        ></button>
-        <button
-          id="togglePurpleBtn"
-          class="btn"
-          style="background-color: #cd2ecd"
-        ></button>
-        <button
-          id="toggleLighterBtn"
-          class="btn"
-          style="background-color: #ba7bba"
-        ></button>
-        <button id="toggleRainbowBtn" class="btn"></button>
-        <button
-          id="toggleEraserBtn"
-          class="btn"
-          style="background-color: white"
-        ></button>
-        <button id="resizeGridBtn" class="btn">Resize Grid</button>
+        <div id="topRow">
+          <button
+            id="toggleBlackBtn"
+            class="btn"
+            style="background-color: black"
+          ></button>
+          <button
+            id="toggleDarkerBtn"
+            class="btn"
+            style="background-color: purple"
+          ></button>
+          <button
+            id="togglePurpleBtn"
+            class="btn"
+            style="background-color: #cd2ecd"
+          ></button>
+        </div>
+        <div id="bottomRow">
+          <button
+            id="toggleLighterBtn"
+            class="btn"
+            style="background-color: #ba7bba"
+          ></button>
+          <button id="toggleRainbowBtn" class="btn"></button>
+          <button
+            id="toggleEraserBtn"
+            class="btn"
+            style="background-color: white"
+          ></button>
+        </div>
+        <div id="resizeDiv">
+          <button id="resizeGridBtn" class="btn">Resize Grid</button>
 
-        <div id="form" class="form">
-          <div class="inputDiv">
-            <label for="height">Height:</label>
-            <input type="text" id="height" name="height" class="inputField" />
-          </div>
+          <div id="form" class="form">
+            <div class="inputDiv">
+              <label for="height">Height:</label>
+              <input type="text" id="height" name="height" class="inputField" />
+            </div>
 
-          <div class="inputDiv">
-            <label for="width">Width:</label>
-            <input
-              type="text"
-              id="width"
-              name="width"
-              class="inputField"
-              onkeyup="matchWidthToHeight();"
-            />
+            <div class="inputDiv">
+              <label for="width">Width:</label>
+              <input
+                type="text"
+                id="width"
+                name="width"
+                class="inputField"
+                onkeyup="matchWidthToHeight();"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -67,13 +79,8 @@
     <footer>
       <p>Designed & built by Jasmine Elkins | November 2021</p>
 
-      <a href="https://github.com/j-elkins/etch-a-sketch">
-        <img
-          src="http://j-elkins.github.io/etch-a-sketch/github-logo-white.png"
-          alt="GitHub logo"
-          height="20px"
-          width="20px"
-        />
+      <a href="https://github.com/jasmineelkins/etch-a-sketch">
+        <i class="fab fa-github" style="font-size: 1.5em; color: white"></i>
       </a>
     </footer>
   </body>
